@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui.css" media="screen"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/order_progress_report.css"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/order_progress_report.print.css" media='print'/>
+    <link rel="stylesheet" href="http://169.254.184.4/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <title>Order</title>
+    <meta charset="UTF-8">
+</head>
+
+<body style="margin-left: 10px;">
+    <h1>
+        Order {{order.order.orderid}}
+        {% if order.order_details.0.package_type %}
+        {{order.order_details.0.package_type}}
+        {% endif %}
+    </h1>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Required Date:
+    <strong>{{order.order.required_date}}  </strong>
+    <span class="put_margin">Date of order: {{order.order.order_date}}</span>
+    <br />
+    Original Required Date: {{order.order.original_required_date}}
+    <span class="put_margin">Sales Person: {{order.order.sales_person}}</span>
+    </div>
+
+
+    <h2>Customer</h2>
+    <div class="costumer_container">
+
+        <div class='address'>
+            <strong>{{order.order.customer.customer}}</strong>
+            {% if order.order.customer.company %}
+            ({{order.order.customer.company}})
+            {% endif %}
+            {% if order.order.customer.address%}
+            {{order.order.customer.address|linebreaks}}
+            {% endif %}
+            {% if order.order.customer.postcode %}
+            {{order.order.customer.city}} {{order.order.customer.postcode}}
+            {% endif %}
+        </div>
+
+        <span>Mobile: {{order.order.customer.mobile}}</span>
+        <span class="home_tel">Home: {{order.order.customer.hometel}}</span>
+    </div>
+
+    <h2 id='order_details'>Order Details</h2>
+    <div style='margin-top:53px;'>
+        <span class='value_time_switch' id='value'>Value</span>
+        <span class='value_time_switch' id='time'>Time</span>
+
+    </div>
+    <div class="datagrid">
+        <table>
+            <thead>
+            <tr><th>Product</th>
+                <th>Qty</th>
+                <th class='value'>Unit</th>
+                <th class='value'>Discount</th>
+                <th class='value'>Total</th>
+                <th class='assembly'>Assembly</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for detail in order.order_details %}
+            <tr>
+                <td class="product" title='{{detail.planned_date}}' style="text-align: left;">
+                    {{detail.product}}
+                    <span class="note">{{detail.note}}</span>
+                    {% if detail.programme %}
+                    <span class="programme" value='yes'>{{detail.programme}}</span></td>
+                {% else %}
+                <span class="programme" value='no' style='color: white;'>Prog</span></td>
+                {% endif %}
+                </td>
+                <td class="qty">{{detail.qty}}</td>
+                <td class="value">&pound;{{detail.unit_price}}</td>
+                <td class="value">&pound;{{detail.discount}}</td>
+                <td class="value">&pound;{{detail.line_total}}</td>
+                <td class="assembly">{{detail.plan}}</td>
+                <td class="status">{{detail.status}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class='total_plan'>{{assembly}}</div>
+    <div class='total_value'> &pound;{{total_pounds}}</div>
+
+    <h2>Order Notes</h2>
+    <div class="notes_container">
+
+        <textarea class="text_container">{{order.order.order_comments}}</textarea>
+
+        <br />
+
+        <a class="btn btn-small" href="#" id="record_note" style="display: none;">
+            <i class="icon-pencil"></i>
+             Update Note
+        </a>
+    </div>
+
+
+    {% if order.order.delivery_comments %}
+    <h2>Delivery Notes</h2>
+    <div class="notes_container">
+        {{order.order.delivery_comments|linebreaks}}
+    </div>
+    {% endif %}
+
+    <!-- information used by javascript code -->
+    <div style="display: none;" class="access_api_url">{{access_api_url}}</div>
+    <div style="display: none;" class="order_number">{{order.order.orderid}}</div>
+
+    <div class='order'></div>
+
+    <script type="text/javascript" src="http://169.254.184.4/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/js/jquery.form.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap-contextmenu.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/order_progress_report.js"></script>
+
+</body>
+</html>
+        

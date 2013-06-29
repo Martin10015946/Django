@@ -1,0 +1,24 @@
+.product {width: 100%;}
+
+.datagrid {width: 100%;}
+
+.header_container{
+	position: relative; 
+	font-size: 60%;
+}
+
+.week_container{margin-top: -10px;}
+	
+.rollover{
+	position: relative;
+	top : -60px;
+	left: 50%; 
+	width: 30%; 
+	font-size: 2em;
+	font-weight: bold;	
+}
+
+.total_plan{
+	margin-top : 1%; 
+	width : 98%;
+}

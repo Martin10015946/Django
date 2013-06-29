@@ -1,0 +1,26 @@
+.product {width: 100%;}
+
+.datagrid {width: 100%;}
+
+.costumer_container, .details_container, .notes_container { 
+	width : 97%;
+}
+
+a, .value_time_switch {display: none;}
+
+.header_container{
+	position: relative; 
+	font-size: 60%;
+}
+
+.total_plan{
+	margin-top : 1%; 
+	width : 98%;
+}
+
+.home_tel{
+	position : relative; 
+	left: 5%; 
+}
+
+.programme {display: none;}

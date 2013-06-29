@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui.css" media="screen"/>
+    <link rel="stylesheet" href="http://169.254.184.4/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/materials_progress_report.css"/>
+    <title>W{{week_nr}} Material Needs</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% load production %}
+
+
+<div class="header_container">
+    <div class="pagination">
+        <ul>
+            <li><a class="navigator" href="{{home_on_server}}/">Dashboard</a></li>
+        </ul>
+    </div>
+
+
+</div>
+<section class="week_container">
+<h1>Materials Needs W{{week_nr}} - All lines</h1>
+
+    <h2>Plywood</h2>
+    
+    <table class='table'>
+    {% for core, value in week_cores.items %}
+    <tr>
+        <td><strong>{{core}} mm</strong><td>
+        <td>{{value}}<td>
+    </tr>
+    {% endfor %}
+    </table>
+
+  <h2>Layons in stock </h2>
+  <p>Weekly check, monthly order.</p>
+    
+    <table class='table'>
+    {% for layons, value in week_finishes.items %}
+    <tr>
+        <td><strong>{{layons}}</strong><td>
+        <td>{{value}}<td>
+    </tr>
+    {% endfor %}
+    </table>
+
+
+    {% if week_specials %}
+    <h2 style='clear:both;'>Special Finishes</h2>
+
+  <p>Weekly check, weekly order.</p>
+            {% for e in week_specials.items %}
+            {% if e.1 %}
+            {% if e.0 in ok_suppliers %}
+            <h3>{{e.0}}</h3>
+            {% else %}
+            <h3>{{e.0}} &mdash; no material defined in the database.</h3>
+            {% endif %}
+            <table class='table'>
+            <thead>
+            <tr>
+                <th>W</th>
+                <th>Order</th>
+                <th>Product</th>
+                {% if e.0 in ok_suppliers %}
+                <th>To Order</th>
+                <th>Supplier</th>
+                {% endif %}
+            </tr>
+            </thead>
+            
+            {% for d in e.1 %}
+            <tr class="{{d.ac_od_id}}">
+                <td>{{d.shop|shortshop}}</td>
+                <td class="ac_od_id"><a class="order" href='{{home_on_server}}/progress_report/order/{{d.ac_o_id}}'>{{d.ac_o_id}}</a></td>
+                <td style="width: 600px;" class="product" style="text-align: left;">
+                    &nbsp; &nbsp; {% if e.0 != "Paint" %} {{d.qty}} &nbsp; &times; &nbsp; {% endif %}
+                   <span class="description">{{d.product}}</span>
+                    <span class="note">{{d.note}}</span>
+                </td>
+                {% if e.0 in ok_suppliers %}
+                <td style="width: 80px;"><input class="materials" value="{{d.material.order_qty}}" style="border-radius: 4px; color: black; text-align: center; background-color: rgb(255,111,55); padding: 0px; margin-bottom: 0px; height: 23px; width: 50px; border: 0px;"></td>
+                <td>{{d.material.supplier}}</td>
+                {% endif %}
+              
+            </tr>
+            {% endfor %}
+            </table>
+            {% endif %}
+            {% endfor %}
+    
+    {% endif %}
+
+
+    <!-- dialog window with iframe, display the order detail on click on the order number link  -->
+    <div id="myModal2" class="modal hide fade" style="margin-top: 10px; border-radius: 10px; padding: 10px; width: 900px;">
+        <!-- the iframe is important to ensure the javascript of the loaded page to work without conflicts with the parent window -->
+        <iframe src="" class="order_frame" style="height: 900px; width: 900px; border: none;"></iframe>
+    </div>
+
+<!-- information used by javascript code -->
+<div style="display: none;" class="shop_tag">{{shop}}</div>
+<div style="display: none;" class="home_on_server">{{home_on_server}}</div>
+<div style="display: none;" class="access_api_url">{{access_api_url}}</div>
+
+</body>
+<script type="text/javascript" src="http://169.254.184.4/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="http://169.254.184.4/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://169.254.184.4/js/jquery.form.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/material.js"></script>
+</html>
+        

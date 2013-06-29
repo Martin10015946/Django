@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" href="http://169.254.184.4/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/> 
+        <link rel="stylesheet" href="{{STATIC_URL}}css/landing.css"/>	
+              
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <div class="row">
+            <div class="span6">
+                <h2>Preparation</h2>
+                <ul class='nav nav-pills'>
+                    <li> <a target='_blank' href='{{home_on_server}}/materials/'>Next week material needs</a></li>
+                </ul>
+        
+                <h2>Production Plan</h2>
+
+                <ul class="nav nav-pills">
+                    <li><a class="pr_bricklane" target='_blank' href="{{home_on_server}}/progress_report/{{year}}/{{week}}/bricklane/">Bricklane Progress Report</a></li>
+                </ul>
+                <table class='table table-bordered'>
+                    <tbody>
+                        <tr>
+                            <td>Bricklane to catch up</td>
+                            <td class="roll_br"><img class="gif" src="http://169.254.184.4/img/ajax_loader.gif"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <ul class="nav nav-pills">
+                    <li><a class="pr_garage" target='_blank' href="{{home_on_server}}/progress_report/{{year}}/{{week}}/garage/">Garage Progress Report</a></li>
+                </ul>
+                <table class='table table-bordered'>
+                    <tbody>
+                        <tr>
+                            <td>Garage to catch up</td>
+                            <td class="roll_gr"><img class="gif" src="http://169.254.184.4/img/ajax_loader.gif"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Required Date Schedule</h2>
+                <ul class="nav nav-pills">
+                    <li><a target='_blank' href="{{home_on_server}}/line_ups/">Line-Ups</a></li>
+                </ul>
+
+                <table class='table table-bordered'>
+                    <tbody>
+                        <tr>
+                            <td>Not Ready in the Past</td>
+                            <td class="rollover_plan_total"><img class="gif" src="http://169.254.184.4/img/ajax_loader.gif"></td>
+                        </tr>
+                        <tr>
+                            <td>Still to make for today</td>
+                            <td class="time_today"><img class="gif"  src="http://169.254.184.4/img/ajax_loader.gif"></td>
+                        </tr>
+                        <tr>
+                            <td>Still to make for tomorrow</td>
+                            <td class="time_tomorrow"><img class="gif" src="http://169.254.184.4/img/ajax_loader.gif"></td>
+                        </tr>
+                        <tr>
+                            <td>Day after tomorrow</td>
+                            <td class="time_day_after"><img class="gif" src="http://169.254.184.4/img/ajax_loader.gif"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="span4 production">
+
+                <h2>Analysis</h2>
+
+                <h3>Assembly History</h3>
+
+                <ul class="nav nav-pills">
+                    <li><a href="{{home_on_server}}/records/week/{{year}}/{{week}}/bricklane/">Bricklane</a></li>
+                </ul>
+                <ul class="nav nav-pills">
+                    <li><a href="{{home_on_server}}/records/week/{{year}}/{{week}}/garage/">Garage</a></li>
+                </ul>
+
+                <h3>Machine History</h3>
+                <ul class="nav nav-pills">
+                    <li><a href="{{home_on_server}}/jobhistory/{{year}}/{{week}}/bricklane/">Bricklane</a></li>
+                </ul>
+                <ul class="nav nav-pills">
+                    <li><a href="{{home_on_server}}/jobhistory/{{year}}/{{week}}/garage/">Garage</a></li>
+                </ul>
+            </div>
+        
+        </div>
+        <div class="row">
+        
+ 			  <h2>Calendar</h2>
+            <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=4avvnr4olhb7cmgh74aju18rm4%40group.calendar.google.com&amp;color=%23333333&amp;ctz=Europe%2FLondon" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        
+        </div>
+
+        <div class="row">
+            <h2>Settings</h2>
+                <a class="btn btn-small" href="{{clear_cache}}"><i class="icon-refresh"></i> Clear Cache</a>
+                <a class="btn btn-small" href="{{home_on_server}}/admin/production/ratreason/"><i class="icon-pencil"></i> Rat Reasons</a>
+                <a class="btn btn-small" href="{{home_on_server}}/admin/manual/progressreporttooltip/"><i class="icon-pencil"></i> Progress Report Tooltips</a>
+                <a class="btn btn-small" href="{{home_on_server}}/admin/manual/progresslineups/"><i class="icon-pencil"></i> Line-Ups Tooltips</a>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+        </div>
+
+        <!-- information used by javascript code -->
+        <div style="display: none;" class="home_on_server">{{home_on_server}}</div>
+
+    </body>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="http://169.254.184.4/js/jquery.ajaxq-0.0.1.js"></script>
+        <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap-contextmenu.js"></script>
+        <script type="text/javascript" src="http://169.254.184.4/js/moment.min.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}js/tmp_landing.js"></script>
+</html>

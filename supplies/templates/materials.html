@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui.css" media="screen"/>
+    <link rel="stylesheet" href="http://169.254.184.4/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/materials_progress_report.css"/>
+    <title>Order Plywod, Colours Laminate, Lino</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+{% for key, value in total2.items %}
+    {{value.0}}
+{% endfor %}
+
+<div class="header_container">
+    <div class="pagination">
+        <ul>
+            <li><a class="navigator" href="{{home_on_server}}/">Dashboard</a></li>
+        </ul>
+    </div>
+
+
+</div>
+<section class="week_container">
+    <h1>Weekly Order</h1>
+    <p>Order placed on monday morning this week (Week {% now "W"%}) for products assembled next week.</p>
+    <h2>Plywood</h2>
+    
+
+    <div class='bom'>
+    <h3>This week &nbsp;&nbsp;&nbsp; + </h3><span>Lamination Mon, Tue, Wed</span>
+    <table class='table'>
+    {% for core, value in this_week_cores.items %}
+    <tr>
+        <td><strong>{{core}} mm</strong><td>
+        <td>{{value}}<td>
+    </tr>
+    {% endfor %}
+</table></div>
+
+    <div class='bom'>
+    <h3>Need &nbsp;&nbsp;&nbsp; + </h3><span>Lamination Thu to next Wed</span>
+    <table class='table'>
+    {% for core, value in next_week_cores.items %}
+    <tr>
+        <td>{{value}}<td>
+    </tr>
+    {% endfor %}
+</table></div>
+
+    <div class='bom'>
+    <h3>Security &nbsp;&nbsp;&nbsp; - </h3><span>&nbsp;</span>
+    <table class='table'>
+    {% for core, value in sec.items %}
+    <tr>
+        <td>{{value}}<td>
+    </tr>
+    {% endfor %}
+</table></div>
+
+    <div class='bom'>
+    <h3>Stock</h3><span>&nbsp;</span>
+    <table class='table'>
+    {% for core, value in total.items %}
+    <tr>
+        <td><strong>{{core}} mm<strong></td>
+       <td style="padding-top: 5px;">
+           <input class="core" value='{{value.1}}' total="{{value.0}}" thickness="{{core}}" style="text-align: center; background-color: #ccc; padding: 0px; margin-bottom: 0px; height: 23px; width: 50px; border: 0px;" class='input-mini' type='text'>
+       </td>
+    </tr>
+    {% endfor %}
+    </table></div>
+
+    <div class='bom'>
+    <h3>To Order</h3><span>&nbsp;</span>
+    <table class='table'>
+    {% for core, value in sec.items %}
+    <tr>
+        <td><strong>{{core}} mm<strong></td>
+        <td style='padding-top:5px;' class='order' thickness="{{core}}"><span class="input uneditable-input" style="color: black; text-align: center; background-color: rgb(255,111,55); padding: 0px; margin-bottom: 0px; height: 23px; width: 50px; border: 0px;"> - </span></td>
+    </tr>
+    {% endfor %}
+</table></div>
+
+    <a class='calc btn btn-mini'>Details</a>
+    <a href='' target='_blank'>Ply Order Policy</a>
+
+
+
+    {% if specials %}
+    <h2 style='clear:both;'>Special Finishes</h2>
+            {% for e in specials.items %}
+            {% if e.1 %}
+            {% if e.0 != "Paint" %}
+            <h3>{{e.0}}</h3>
+            {% else %}
+            <h3>{{e.0}} &mdash; To double-check</h3>
+            {% endif %}
+            <table class='table'>
+            <thead>
+            <tr>
+                <th>Order</th>
+                <th>Product</th>
+                {% if e.0 != "Paint" %}
+                <th>To Order</th>
+                <th>Supplier</th>
+                {% endif %}
+            </tr>
+            </thead>
+            
+            {% for d in e.1 %}
+            <tr class="{{d.ac_od_id}}">
+                <td class="ac_od_id"><a class="order" href='{{home_on_server}}/progress_report/order/{{d.ac_o_id}}'>{{d.ac_o_id}}</a></td>
+                <td style="width: 600px;" class="product" style="text-align: left;">
+                    &nbsp; &nbsp; {% if e.0 != "Paint" %} {{d.qty}} &nbsp; &times; &nbsp; {% endif %}
+                   <span class="description">{{d.product}}</span>
+                    <span class="note">{{d.note}}</span>
+                </td>
+                {% if e.0 != "Paint" %}
+                <td style="width: 80px;"><input class="materials" value="{{d.material.order_qty}}" style="border-radius: 4px; color: black; text-align: center; background-color: rgb(255,111,55); padding: 0px; margin-bottom: 0px; height: 23px; width: 50px; border: 0px;"></td>
+                <td>{{d.material.supplier}}</td>
+                {% endif %}
+              
+            </tr>
+            {% endfor %}
+            </table>
+            {% endif %}
+            {% endfor %}
+    
+    {% endif %}
+
+
+    <!-- dialog window with iframe, display the order detail on click on the order number link  -->
+    <div id="myModal2" class="modal hide fade" style="margin-top: 10px; border-radius: 10px; padding: 10px; width: 900px;">
+        <!-- the iframe is important to ensure the javascript of the loaded page to work without conflicts with the parent window -->
+        <iframe src="" class="order_frame" style="height: 900px; width: 900px; border: none;"></iframe>
+    </div>
+
+<!-- information used by javascript code -->
+<div style="display: none;" class="shop_tag">{{shop}}</div>
+<div style="display: none;" class="home_on_server">{{home_on_server}}</div>
+<div style="display: none;" class="access_api_url">{{access_api_url}}</div>
+
+</body>
+<script type="text/javascript" src="http://169.254.184.4/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="http://169.254.184.4/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://169.254.184.4/js/jquery.form.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/material.js"></script>
+</html>
+        

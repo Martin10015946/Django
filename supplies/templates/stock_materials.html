@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui.css" media="screen"/>
+    <link rel="stylesheet" href="http://169.254.184.4/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/materials_progress_report.css"/>
+    <title>Check Stock Material</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="header_container">
+    <div class="pagination">
+        <ul>
+            <li><a class="navigator" href="{{home_on_server}}/">Dashboard</a></li>
+        </ul>
+    </div>
+
+
+</div>
+<section class="week_container">
+
+    <h1 style='clear: both;'>Monthly Order &mdash; {% now "F"%}</h1>
+    <span><a href='{{home_on_server}}/admin/production/material/'>Edit this list</a></span>
+        <table class='table'>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Note</th>
+                <th>Monthly Qty</th>
+                <th>Week 1</th>
+                <th>Week 2</th>
+                <th>Week 3</th>
+                <th>Week 4</th>
+                <th>Week 5</th>
+                <th>To Order</th>
+                <th>Supplier</th>
+            </tr>
+            </thead>
+        {% for material in other_materials %}
+        <tr>
+            <td><strong>{{material.name}}</strong></td>
+            <td>{{material.note|default_if_none:''}}</td>
+            <td style="text-align: center;">{{material.monthly_qty}}</td>
+            <td><input class="stock" material_id="{{material.id}}" week="1" value="{{material.week1_qty|default_if_none:''}}" style="text-align: center; background-color: #ccc; padding: 0px; margin-bottom: 0px; height: 23px; width: 50px; border: 0px;" class='input-mini'type='text'></td>
+            <td><input class="stock" material_id="{{material.id}}" week="2" value="{{material.week2_qty|default_if_none:''}}" style="text-align: center; background-color: #ccc; padding: 0px; margin-bottom: 0px; height: 23px; width: 50px; border: 0px;" class='input-mini'type='text'></td>
+            <td><input class="stock" material_id="{{material.id}}" week="3" value="{{material.week3_qty|default_if_none:''}}" style="text-align: center; background-color: #ccc; padding: 0px; margin-bottom: 0px; height: 23px; width: 50px; border: 0px;" class='input-mini'type='text'></td>
+            <td><input class="stock" material_id="{{material.id}}" week="4" value="{{material.week4_qty|default_if_none:''}}" total="{{material.monthly_qty}}" style="text-align: center; background-color: #ccc; padding: 0px; margin-bottom: 0px; height: 23px; width: 50px; border: 0px;" class='input-mini'type='text'></td>
+            <td><input class="stock" material_id="{{material.id}}" week="5" value="{{material.week5_qty|default_if_none:''}}" style="text-align: center; background-color: #ccc; padding: 0px; margin-bottom: 0px; height: 23px; width: 50px; border: 0px;" class='input-mini'type='text'></td>
+            <td style='padding-top:5px;' class='order' id='{{material.id}}'><span class="input uneditable-input" style="color: black; text-align: center; background-color: rgb(255,111,55); padding: 0px; margin-bottom: 0px; height: 23px; width: 50px; border: 0px;"> - </span></td>
+            <td>{{material.supplier}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+
+    <!-- dialog window with iframe, display the order detail on click on the order number link  -->
+    <div id="myModal2" class="modal hide fade" style="margin-top: 10px; border-radius: 10px; padding: 10px; width: 900px;">
+        <!-- the iframe is important to ensure the javascript of the loaded page to work without conflicts with the parent window -->
+        <iframe src="" class="order_frame" style="height: 900px; width: 900px; border: none;"></iframe>
+    </div>
+
+<!-- information used by javascript code -->
+<div style="display: none;" class="shop_tag">{{shop}}</div>
+<div style="display: none;" class="home_on_server">{{home_on_server}}</div>
+<div style="display: none;" class="access_api_url">{{access_api_url}}</div>
+
+</body>
+<script type="text/javascript" src="http://169.254.184.4/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="http://169.254.184.4/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://169.254.184.4/js/jquery.form.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/material.js"></script>
+</html>
+        

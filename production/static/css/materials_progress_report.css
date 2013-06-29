@@ -1,0 +1,73 @@
+body { 
+    font-family: Helvetica, sans-serif;
+    margin-left: 10px;
+}
+
+.pagination {
+    margin-bottom: 10px;
+}
+
+.bom table { width: 200px; }
+.bom { float: left; }
+.ac_od_id{width: 6%; }
+.qty{width: 3%; }
+.plan{width: 3%; }
+
+h1{
+    display: block; 
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h3, h2{margin-bottom: 5px;}
+
+td a {
+    text-decoration: none;
+    color: black;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+.navigator {
+    color: black;
+    padding-right: 20px;
+}
+
+.navigator:visited {
+    color: black;
+}
+
+.week{
+    display:block; 
+    width: 30%; 
+    font-size: 80%;
+}
+
+.tooltip { 
+    font-family:Sans-Serif; 
+    font-size: 20px;
+}
+
+.note{
+    font-family:"Times New Roman",Georgia,Serif;
+    font-size: 90%;
+    font-style: italic;
+    color: blue;
+}
+
+.programme {
+    float: right;
+    cursor: pointer;
+    font-size: 90%;
+    font-weight: bold;
+    color: grey;
+}
+
+.input-mini {
+    margin-bottom: 0px;
+    height: 14px;
+    background-color: #ccc;
+}
+

@@ -1,0 +1,39 @@
+body{margin-left: 1%; font-family: sans-serif;}
+
+#canvas_container {
+    width: 740px;
+    border: 1px solid #aaa;
+}
+
+#jobs {font-family: Courier;}
+
+.start .end {text-align: center;}
+
+.title_machining {
+    margin-left: 250px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.day_link {color: #000000;}
+
+.input_description { margin-top: -10px; }
+
+.navigator {
+    color: black;
+    padding-right: 20px;
+}
+
+.input_description{font-size: 10px;}
+
+.shop_description{
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+.total_time {font-size: 24px;}
+
+.chart_column {display: none;}
+.day_x_chart {display: none;}
+
+#chart1 {margin-left: 5%; margin-bottom: 3%;}

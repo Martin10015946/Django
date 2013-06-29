@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ shop|capfirst }} W{{ week }} Job History</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="http://169.254.184.4/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/datepicker.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/job_history.css"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/job_history.print.css" media='print'/>
+</head>
+<body>
+    <div class="pagination">
+        <ul>
+            <li><a class="navigator" href="{{home_on_server}}/">Dashboard</a></li>
+            <li><a class="navigator" href="{{home_on_server}}/{{ navigator.url_previous }}"><i class="icon-arrow-left"></i> </a></li>
+            <li><a class="navigator" href="{{home_on_server}}/{{ navigator.url_today }}">Today</a></li>
+            <li><a class="navigator" href="{{home_on_server}}/{{ navigator.url_next }}"><i class="icon-arrow-right"></i></a></li>
+            <li><a class="navigator" href="{{home_on_server}}/{{ navigator.url_monday }}">Day</a></li>
+            <li><a class="navigator" href="{{home_on_server}}/{{ navigator.url_week }}">Week</a></li>
+            <li><a class="navigator" href="{{home_on_server}}/{{ navigator.url_this_month }}">Month</a></li>
+        </ul>
+        <!-- style hardcoded, otherwise boostrap override it -->
+        <input class="dp1" style="margin-left: 10px; margin-top: -11px; width: 75px; padding-left: 2px;" type="text"/>
+        <span class="input_description">Click in the box to change date</span>
+    </div>
+
+    <table>
+        <tr>
+            <td style="width: 500px;">
+                <h1>W{{ week }} <span class="shop_description">{{shop|capfirst}}</span></h1>
+            </td>
+            <td style="width: 200px;">
+                <span class="total_time">Total Time {{ total_time.total_hours }}:{{ total_time.total_minutes }}</span>
+            </td>
+        </tr>
+    </table>
+
+
+    {% for day in data %}
+
+        <div class='timeline' id="{{ forloop.counter }}">
+
+        <span id='date' style='display: none;'>{{ day.javascript_day }}</span>
+
+        <table>
+            <tr>
+                <td style="width: 500px;"><h3><a class="day_link" href="{{ home_on_server }}/{{ day.day_url }}">{{ day.day }}</a></h3></td>
+                <td style="width: 200px;">Machining Time {{ day.total_time }}</td>
+            </tr>
+        </table>
+
+        <div class="canvas_container"></div>
+            <table class='jobs'>
+                <thead>
+                    <tr><th>File</th><th>Start</th><th>End</th><th>Time</th></tr>
+                </thead>
+                <tbody>
+                    {% for job in day.data %}
+                        <tr id='{{ job.id }}'>
+                            <td class='filename'>{{ job.name }}</td>
+                            <td width='100' class='start'>{{ job.start_time }}</td>
+                            <td width='100' class='end'>{{ job.end_time }}</td>
+                            <td width='100' class='running time'>{{ job.total_time }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+
+    <!-- information used by javascript code -->
+    <div style="display: none;" class="shop_tag">{{shop}}</div>
+    <div style="display: none;" class="home_on_server">{{home_on_server}}</div>
+    <div style="display: none;" class="today">{{datapicker_day}}</div>
+
+    <script type="text/javascript" src="http://169.254.184.4/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/_bootstrap-contextmenu.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/js/raphael-min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/job_history.js"></script>
+
+</body>
+</html>

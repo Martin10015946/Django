@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="http://169.254.184.4/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/table.css"/>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/progress_report.css"/>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/progress_report.print.css" media='print'/>
+        <title>Progress Report W{{week_nr}} {{ shop|capfirst }}</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>
+            <div class="pagination">
+                <ul>
+                    <li><a class="navigator" href="{{home_on_server}}/">Dashboard</a></li>
+                </ul>
+            </div>
+
+            <h2>Inactive Records Report</h2>
+
+            <hr>
+
+            <h4>Inactive Records: not found in access </h4>
+            <div class="datagrid">
+                <table>
+                    <thead>
+                        <th>order detail number</th>
+                        <th>location</th>
+                        <th>assembled</th>
+                        <th>shop</th>
+                    </thead>
+                    <tbody>
+                            {% for order in not_in_access %}
+                        <tr>
+                                <td class="not-found-in-access">{{order.ac_od_id}}</td>
+                                <td>{{order.location}}</td>
+                                <td>{{order.assembled}}</td>
+                                <td>{{order.shop}}</td>
+                        </tr>
+                            {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- button cancel record -->
+            <br />
+            <a class="btn btn-small" href="#"  id="not_in_access">
+                <i class="icon-trash"></i>
+                Remove orders
+            </a>
+            <hr>
+
+            <h4>Inactive Records: without planned date </h4>
+            <div class="datagrid">
+                <table>
+                    <thead>
+                    <th>order detail number</th>
+                    <th>location</th>
+                    <th>assembled</th>
+                    <th>shop</th>
+                    </thead>
+                    <tbody>
+                        {% for order in no_planned %}
+                    <tr>
+                        <td class="without-planned-date">{{order.ac_od_id}}</td>
+                        <td>{{order.location}}</td>
+                        <td>{{order.assembled}}</td>
+                        <td>{{order.shop}}</td>
+                    </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- button cancel record -->
+            <br />
+            <a class="btn btn-small" href="#" id="no_planned">
+                <i class="icon-trash"></i>
+                Remove orders
+            </a>
+
+            <hr>
+            <hr>
+            <hr>
+
+            <h4>Press the button to set all ETA greater than today to None</h4>
+            <!-- button blank ETA -->
+            <br />
+            <a class="btn btn-small" href="#" id="blank_eta">
+                <i class="icon-pencil"></i>
+                 Blank ETA
+            </a>
+            <hr>
+
+
+        </div> <!-- end div container -->
+
+        <!-- information used by javascript code -->
+        <div style="display: none;" class="home_on_server">{{home_on_server}}</div>
+
+    </body>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/inactive_orders.js" ></script>
+</html>
+

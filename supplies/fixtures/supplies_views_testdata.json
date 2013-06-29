@@ -1,0 +1,264 @@
+[
+    {
+        "pk": 2, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 18, 
+            "name": "Oak A", 
+            "week4_qty": 10, 
+            "week5_qty": 7, 
+            "note": "1cm = 13 layons", 
+            "monthly_qty": 100, 
+            "supplier_link": null, 
+            "supplier": "D.F. Richards", 
+            "week2_qty": 26, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 20, 
+            "name": "Oak B", 
+            "week4_qty": 40, 
+            "week5_qty": 31, 
+            "note": "1cm = 13 layons", 
+            "monthly_qty": 100, 
+            "supplier_link": null, 
+            "supplier": "D.F. Richards", 
+            "week2_qty": 26, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": null, 
+            "name": "4mm Ply", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "Lights", 
+            "monthly_qty": 10, 
+            "supplier_link": null, 
+            "supplier": "DHH", 
+            "week2_qty": 7, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 60, 
+            "name": "White", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "1cm = 20 sheets", 
+            "monthly_qty": 100, 
+            "supplier_link": null, 
+            "supplier": "Corbetta Fia", 
+            "week2_qty": 120, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 60, 
+            "name": "Walnut A", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "1cm = 16 layons", 
+            "monthly_qty": 50, 
+            "supplier_link": null, 
+            "supplier": "D.F. Richards", 
+            "week2_qty": null, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 60, 
+            "name": "Walnut B", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "1cm = 16 layons", 
+            "monthly_qty": 50, 
+            "supplier_link": "alex@the-veneer.com", 
+            "supplier": "D.F. Richards", 
+            "week2_qty": null, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 12, 
+            "name": "Polyprop 0.8 (Linings)", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "1cm = 13 sheets 2175x1220", 
+            "monthly_qty": 100, 
+            "supplier_link": "", 
+            "supplier": "Robert Horn", 
+            "week2_qty": 17, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 47, 
+            "name": "Polyprop 0.28 (Lampshades)", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "1 cm = 30 sheets 1000x700", 
+            "monthly_qty": 30, 
+            "supplier_link": "", 
+            "supplier": "Robert Horn", 
+            "week2_qty": 30, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 8, 
+            "name": "1.5mm Ply", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "Lights", 
+            "monthly_qty": 20, 
+            "supplier_link": null, 
+            "supplier": "Lathams", 
+            "week2_qty": 3, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 7, 
+            "name": "Compact 3mm ", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "Coasters", 
+            "monthly_qty": 10, 
+            "supplier_link": null, 
+            "supplier": "DHH", 
+            "week2_qty": null, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 5, 
+            "name": "12mm Green MDF", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "Spoilboards", 
+            "monthly_qty": 10, 
+            "supplier_link": "", 
+            "supplier": "DHH", 
+            "week2_qty": 5, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 15, 
+            "name": "3mm Brown MDF", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "Lamination", 
+            "monthly_qty": 20, 
+            "supplier_link": null, 
+            "supplier": "DHH", 
+            "week2_qty": null, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "supplies.material", 
+        "fields": {
+            "week3_qty": 9, 
+            "name": "10mm Black MDF", 
+            "week4_qty": null, 
+            "week5_qty": null, 
+            "note": "Portraits", 
+            "monthly_qty": 5, 
+            "supplier_link": null, 
+            "supplier": "Lathams", 
+            "week2_qty": 9, 
+            "week1_qty": null
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "supplies.plystock", 
+        "fields": {
+            "nominal_thickness": "1.5 mm", 
+            "date_recorded": "2013-06-11T16:57:30.554", 
+            "stock_qty": 0
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "supplies.plystock", 
+        "fields": {
+            "nominal_thickness": "6.5 mm", 
+            "date_recorded": "2013-06-11T16:57:37.288", 
+            "stock_qty": 12
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "supplies.plystock", 
+        "fields": {
+            "nominal_thickness": "4 mm", 
+            "date_recorded": "2013-06-11T16:57:41.663", 
+            "stock_qty": 0
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "supplies.plystock", 
+        "fields": {
+            "nominal_thickness": "12 mm", 
+            "date_recorded": "2013-06-11T16:57:46.194", 
+            "stock_qty": 30
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "supplies.plystock", 
+        "fields": {
+            "nominal_thickness": "18 mm", 
+            "date_recorded": "2013-06-11T16:57:55.366", 
+            "stock_qty": 21
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "supplies.plystock", 
+        "fields": {
+            "nominal_thickness": "24 mm", 
+            "date_recorded": "2013-06-11T16:58:03.835", 
+            "stock_qty": 15
+        }
+    }
+]

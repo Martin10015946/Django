@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ shop|capfirst }} W{{ week }} Job History</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="http://169.254.184.4/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/datepicker.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/job_history.css"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/table.css"/>
+</head>
+<body>
+
+  <div class="pagination">
+    <ul>
+        <li><a class="navigator" href="{{home_on_server}}/">Dashboard</a></li>
+        <li><a class="navigator" href="{{home_on_server}}/{{ navigator.url_previous }}"><i class="icon-arrow-left"></i> </a></li>
+        <li><a class="navigator" href="{{home_on_server}}/{{ navigator.url_this_month }}">Current Month</a></li>
+        <li><a class="navigator" href="{{home_on_server}}/{{ navigator.url_next }}"><i class="icon-arrow-right"></i></a></li>
+    </ul>
+    <!-- style hardcoded, otherwise boostrap override it -->
+    <input class="dp1" style="margin-left: 10px; margin-top: -11px; width: 75px; padding-left: 2px;" type="text"/>
+    <span class="input_description">Click in the box to change date</span>
+  </div>
+
+    <table>
+            <tr>
+                <td style="width: 600px;">
+                    <h1>{{ month }} <span class="shop_description">{{shop|capfirst}}</span></h1>
+                </td>
+                <td>
+                    <span style="font-size: 24px;">Total Time {{ total_month.total_time_month_hours }}:{{ total_month.total_time_month_minutes }} </span>
+                </td>
+            </tr>
+    </table>
+
+    <div id="chart1" style="width:800px; height:250px;"></div>
+
+    <div class="datagrid" style="width: 90%;">
+        <table>
+            <thead>
+                <th>Day</th>
+                <th>Time</th>
+            </thead>
+            {% for day in data %}
+                <tr>
+                    <td style="text-align: left;"><a class="day_link" href="{{ home_on_server }}/{{ day.day_url }}">{{ day.day }}</a></td>
+                    <td style="text-align: left;">Machining Time {{ day.total_time }}</td>
+                    <td class="chart_column">{{ day.total_minutes_chart }}</td>
+                    <td class="day_x_chart">{{ day.day_x_chart }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- information used by javascript code -->
+    <div style="display: none;" class="shop_tag">{{shop}}</div>
+    <div style="display: none;" class="home_on_server">{{home_on_server}}</div>
+    <div style="display: none;" class="today">{{datapicker_day}}</div>
+
+    <script type="text/javascript" src="http://169.254.184.4/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/_bootstrap-contextmenu.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/js/raphael-min.js"></script>
+    <script type="text/javascript" src="http://169.254.184.4/js/moment.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/job_history_month.js"></script>
+
+
+
+    <script class="include" type="text/javascript" src="{{STATIC_URL}}js/jqplot/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jqplot/syntaxhighlighter/scripts/shCore.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jqplot/syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jqplot/syntaxhighlighter/scripts/shBrushXml.min.js"></script>
+
+    <!-- chart libraries -->
+    <script type="text/javascript" src="{{STATIC_URL}}js/jqplot/jqplot.dateAxisRenderer.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jqplot/jqplot.canvasTextRenderer.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jqplot/jqplot.canvasAxisTickRenderer.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jqplot/jqplot.categoryAxisRenderer.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jqplot/jqplot.barRenderer.js"></script>
+
+</body>
+</html>

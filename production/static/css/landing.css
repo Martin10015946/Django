@@ -1,0 +1,23 @@
+body {
+    font-family: Helvetica, sans-serif; 
+    margin-left: 50px;
+}
+
+a, a:hover { 
+    font-weight: bold; 
+    color: grey;
+}
+
+.table { 
+    width: 50%; 
+    font-size: 90%;
+}
+
+tr td:nth-child(2) { text-align: center; }
+
+.html_container_br, .html_container_pr {display: none;}
+
+.gif {
+    width: 20px;
+    height: 20px;
+}
