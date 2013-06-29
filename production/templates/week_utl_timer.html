@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui.css"/> 
+        <link rel="stylesheet" href="{{STATIC_URL}}css/week_utl_timer.css"/>      
+        <link rel="stylesheet" href="{{STATIC_URL}}css/week_utl_timer.print.css" media='print'/>
+        <link rel="stylesheet" href="http://169.254.184.4/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+        <title>Assembly Report W{{ week_nr }} {{ shop|capfirst }}</title>
+    </head>
+    <body>
+
+    <div class="page_container">
+
+        <div class="pagination">
+            <ul>
+                <li><a class="navigator" href="{{home_on_server}}{{navigation.previous}}">Previous</a></li>
+                <li><a class="navigator" href="{{home_on_server}}{{navigation.this}}">This Week</a></li>
+                <li><a class="navigator" href="{{home_on_server}}{{navigation.next}}">Next</a></li>
+                <li><a class="navigator" href="{{home_on_server}}/">Dashboard</a></li>
+            </ul>
+        </div>
+
+    	<h2>Assembly Report</h2>
+		<h1>W{{ week_nr }} {{ shop|capfirst }}</h1>
+
+
+         {% for day in week %}
+      
+         <div class='timeline'>
+         	
+         	<h3>{{day.keys.0}}</h3>
+            	            	
+       		<div class="canvas_container"></div>
+       		<div class="open">List</div>
+
+	            <table class='jobs'>
+	                <thead>
+						<tr><th>Product</th>
+							<th>Plan</th>
+							<th>Actual</th>
+							<th class="pause">Pause</th>
+							<th class="total">Total</th>
+							<th class='start'>Start</th>
+							<th class='ETA'>ETA</th>
+							<th>Status</th>
+						</tr>		
+	                </thead>
+                    <tbody>
+                          	{% for product in day.items.0.1 %}
+	             		<tr class='{{product.class}}' id='{{product.ac_od_id}}'>
+	                        <td class='product'>{{product.product}}</td>
+							<td class='description' style="display: none;">{{product.note}}</td>
+	                        <td width='100' class='plan'>{{product.plan}}</td>
+	                        <td width='100' class='actual'>
+	                        	{% if product.actual %} 
+	                        		{{product.actual}}
+	                        	{% else %}
+	                        	 -
+	                        	{% endif %} 
+	                        </td>
+	                        <td width='100' class='pause'>{{product.pause}}</td>
+	                        <td width='100' class='total'>{{product.total}}</td>
+	                        <td width='100' class='start'>{{product.start_time}}</td>
+	                        <td width='100' class='ETA'>{{product.ETA}}</td>
+	                        <td width='100' class='status'>{{product.status}}</td>                            
+						 </tr>
+                   		{% endfor %}						  				 
+	                </tbody>
+	                <tfoot>
+						<tr>
+							<td></td>
+							<td width='100' class="total_plan">Plan</td>
+							<td class="total_actual">Actual</td>
+							<td class="total_pause">Pause</td>
+							<td class="total_total">Total</td>
+							<td></td>
+				        </tr>		  
+	          		</tfoot>
+	    		</table>
+        	</div>	  
+            {% endfor %} 
+          			        	
+		<!-- information used by javascript code -->        
+		<div style="display: none;" class="home_on_server">{{home_on_server}}</div>
+    </div>
+    </body>
+        <script type="text/javascript" src="http://169.254.184.4/js/jquery-1.8.3.js" ></script>
+        <script type="text/javascript" src="http://169.254.184.4/js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script type="text/javascript" src="http://169.254.184.4/js/moment.min.js"></script>
+        <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://169.254.184.4/bootstrap/js/bootstrap-contextmenu.js"></script>
+        <script type="text/javascript" src="http://169.254.184.4/js/raphael-min.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}js/week_timer.js"></script>       
+</html>
+        

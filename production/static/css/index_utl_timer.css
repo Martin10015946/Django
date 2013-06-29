@@ -1,0 +1,138 @@
+body { font-family: Helvetica, sans-serif }
+
+h2 { margin-bottom: 0px; margin-top: 0px;}
+
+#canvas_container { width: 740px; border: 1px solid #aaa; }
+
+#jobs { font-family: Courier; }
+
+tr { height: 40px; }
+
+td { text-align: center; }
+td.product { text-align: left; }
+
+.total_actual, .total_plan {font-weight: bold;}
+
+.start, .ETA, .keypoints, .pause, .total, .total_pause, .total_total, .assembly { display: none; }
+
+.timing { width: 50px;}
+
+.timing_desc { width: 90px; float: right;}
+
+.timer_time { margin-top : 3%; margin-left : 3%;}
+
+.test {font-size: 200%; color: red;}
+
+.timer-container{
+    margin-left: 10%;
+    font-size: 300%;
+    font-weight: bold;
+}
+
+.timer_counting{
+    margin-left: 30%;
+    margin-top: 5%;
+    font-size: 80px;
+}
+
+.minutes {margin-left: 20px;}
+
+.timer_coloumn1{
+    width : 47%;
+    height : 100%;
+    float: left;
+}
+
+.timer_coloumn2{
+    width : 47%;
+    height : 100%;
+    float: left;
+}
+
+.timer_confirm_standby_frame{
+    padding-top: 5%;
+}
+
+
+.ui-dialog-titlebar {display: none;}
+
+.button_play{
+    position: relative;
+    left: 0;
+    display: inline-block;
+    background: url("http://169.254.184.4/img/playback_play.png") no-repeat;
+    background-size: 150px 150px;
+    height: 150px;
+    width: 150px;
+    margin-left: 0%;
+    margin-top: 5%;
+}
+
+.button_record{
+    position: relative;
+    left: 70px;
+    display: inline-block;
+    background: url("http://169.254.184.4/img/record.png") no-repeat;
+    background-size: 150px 150px;
+    height: 150px;
+    width: 150px;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+/* from bootstrap  */
+.button_confirm_ready, .button_confirm_stanby, .button_confirm_cancel, .button_confirm_ready_ok, .button_confirm_stanby, .button_confirm_cancel, .button_confirm_ready_ok, .button_confirm_standby_ok, .button_assembly_confirm, .button_confirm_ready_cancel, .button_confirm_standby_cancel, .button_assembly_cancel, .button_cancel {
+    border-radius: 6px 6px 6px 6px;
+    font-size: 17.5px;
+    padding: 11px 19px;
+}
+
+.button_confirm_ready, .button_confirm_stanby, .button_confirm_cancel, .button_confirm_ready_ok, .button_confirm_stanby, .button_confirm_cancel, .button_confirm_ready_ok, .button_confirm_standby_ok, .button_assembly_confirm, .button_confirm_ready_cancel, .button_confirm_standby_cancel, .button_assembly_cancel, .button_cancel {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #006DCC;
+    background-image: linear-gradient(to bottom, #0088CC, #0044CC);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+    border-image: none;
+    /* border-radius: 4px 4px 4px 4px; */
+    border-radius: 10px 10px 10px 10px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    /* font-size: 14px; */
+    font-size: 45px;
+    /*line-height: 20px;*/
+    line-height: 50px;
+    margin-bottom: 0;
+    padding: 4px 12px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+}
+
+/* from bootstrap end */
+
+.button_confirm_ready { margin-right: 10%;}
+
+.button_confirm_cancel {margin-top: 35%;}
+
+.button_confirm_ready, {margin-top: 10%;}
+
+.button_confirm_ready_ok, .button_confirm_ready_cancel, .button_confirm_standby_ok, .button_confirm_standby_cancel {margin-top: 10%;}
+
+
+hr{height: 2%; background-color: black;}
+
+.note{
+    font-family:"Times New Roman",Georgia,Serif;
+    font-size: 90%;
+    font-style: italic;
+    padding-left: 20px;
+    color: blue;
+}

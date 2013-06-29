@@ -1,0 +1,274 @@
+body { 
+    font-family: Helvetica, sans-serif;
+    margin-left: 10px;
+}
+
+.pagination {
+    margin-bottom: 10px;
+}
+.header_container{
+    top: 0;	
+    width:100%;
+    height: 170px;
+    position:fixed;
+    background-color:#FFF;
+    z-index: 300;
+}
+
+
+.ac_od_id {width: 6%;}
+
+.qty {width: 3%;}
+
+.plan {width: 3%;}
+
+h1 {
+    display: block; 
+    width: 30%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h3, h2 { margin-bottom: 5px; }
+
+td a {
+    text-decoration: none;
+    color: black;
+}
+
+td a:hover { text-decoration: underline; }
+
+.navigator {
+    color: black;
+    padding-right: 20px;
+}
+
+.navigator:visited { color: black; }
+
+.week{
+    display:block; 
+    width: 30%; 
+    font-size: 80%;
+}
+
+.rollover{
+    position: relative;
+    top: -78px; 
+    left: 47%; 
+    width: 30%; 
+    font-size: 2em; 
+    font-weight: bold;	
+}
+
+.tooltip { 
+    font-family:Sans-Serif; 
+    font-size: 20px;
+}
+
+.assembly_buffer {
+   font-size: 20px; 
+   font-weight: normal;	
+}
+
+.note{
+    font-family:"Times New Roman",Georgia,Serif;
+    font-size: 90%;
+    font-style: italic;
+    color: blue;
+}
+
+.programme, .model {
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 90%;
+    font-weight: bold;
+    color: grey;
+}
+
+.model a { color: grey; }
+
+#myModal2 { left: 30%; }
+
+td.thickness { width: 4px; }
+
+input.thickness {
+    float: right;
+    margin-bottom: 0px;
+    padding: 0px; 
+    border: 0px;
+    height: 23px; 
+    width: 50px; 
+    background-color: #ccc;
+    text-align: center; 
+}
+
+.total_plan{
+    margin-top : 1%; 
+    width : 64%;
+    text-align: right;
+    font-weight: bold; 
+    font-size: 20px;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+    margin-top: 3px;
+}
+
+img.ratsign {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 8px;
+    left: 0px;
+    z-index: 120;
+    display: none;
+}
+
+td.uo { width: 10%; }
+
+/* css downloaded from tablestyler.com/ */
+.datagrid table { 
+    border-collapse: collapse;
+    width: 100%;
+} 
+
+.datagrid {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    overflow: hidden;
+    border: 1px solid #030303;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 99%;
+}
+
+.datagrid table th { padding: 5px 10px; }
+.datagrid table td { padding: 0px 10px; }
+
+.datagrid table thead th {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8C8C8C), color-stop(1, #7D7D7D) );
+	background:-moz-linear-gradient( center top, #8C8C8C 5%, black 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8C8C8C', endColorstr='black');
+	background-color:#8C8C8C;
+	color:#FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+	border-left: 1px solid #050505;
+} 
+
+.datagrid table thead th:first-child { border: none;}
+
+.datagrid table tbody td { 
+	color: #black;
+	border-left: 1px solid #030303;
+	font-size: 14px;
+	border-bottom: 1px solid #000000;
+	font-weight: normal;
+	text-align: center;
+}
+
+.datagrid table tbody td:first-child { border-left: none;}
+
+.datagrid table tbody tr:last-child td { border-bottom: none;}
+
+.datagrid table tfoot td div { border-top: 1px solid #030303;background: #EBEBEB;} 
+
+.datagrid table tfoot td { padding: 0;font-size: 12px } 
+
+.datagrid table tfoot td div{ padding: 2px;}
+
+.datagrid table tfoot td ul { 
+	margin: 0;
+	padding:0;
+	list-style: none;
+	text-align: right;
+}
+
+.datagrid table tfoot  li { display: inline;}
+
+.datagrid table tfoot li a { 
+	text-decoration: none;
+	display: inline-block;
+	padding: 2px 8px;
+	margin: 1px;color: #F5F5F5;border: 1px solid #8C8C8C;-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8C8C8C), color-stop(1, black) );
+	background:-moz-linear-gradient( center top, #8C8C8C 5%, #7D7D7D 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8C8C8C', endColorstr='#7D7D7D');
+	background-color:#8C8C8C;
+}
+
+.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { 
+	text-decoration: none;border-color: #7D7D7D;
+	color: #F5F5F5;
+	background: none;
+	background-color:#8C8C8C;
+}
+
+.datagrid table td span { position: relative; }
+.datagrid table td.status {padding: 0px 0px; width: 3%;}
+.datagrid table td img {margin: 2px 2px;}
+.datagrid table td.status_assambled {padding: 0px 0px;  width: 3%;}
+
+textarea {
+    width: 336px;
+}
+
+.icon-stop {
+  margin-top: -20px;
+}
+
+.form_description {
+    font-weight: bold;
+}
+
+
+.btn_rat, .btn_rat_cancel {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F5F5F5;
+    background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+    border-image: none;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+    padding: 4px 12px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+}
+
+
+@media only screen and (width : 600px) and (orientation: portrait) {
+.product {width: 99%;}
+.datagrid {width: 99%;}
+.header_container{position: relative; height: 30px;}
+.assembly_buffer { font-size: 14px;}
+.total_plan {width: 99%;}
+}
+
+
+@media only screen and (width : 961px) and (orientation: landscape) {
+.product {width: 100%;}
+.datagrid {width: 100%;}
+.header_container{position: relative; height: 30px;}
+.assembly_buffer {font-size: 14px;}
+.total_plan {width: 99%;}
+}
+

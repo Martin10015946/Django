@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui.css"/>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/index_utl_timer.css"/>
+        <title>Assembly Timer</title>
+    </head>
+    <body>
+        <h1>Please wait ...</h1>
+        <div class='timeline' style="display: none;">
+
+	    <div class="test" style="display: none;">Test mode !!!!</div>
+            <div class="canvas_container"></div>
+            <table class='jobs'>
+                <thead>
+                     <tr>
+                        <th>Qty</th>
+                        <th>Product</th>
+                        <th>Plan</th>
+                        <th>Actual</th>
+                        <th class='pause'>Pause</th>
+                        <th class='total'>Total</th>
+                        <th class='start'>Start</th>
+                        <th class='ETA'>ETA</th>
+                        <th>Status</th>
+                        <th class='assembly'>Assembly</th>
+                        <th class='keypoints'>Keypoints</th>
+                      </tr>
+                 </thead>
+                <tbody>
+                    <tr class="product" id='{{product.ac_od_id}}'>
+                    <td>{{product.qty}}</td>
+                    <td class='product'>{{product.product}} <br/> <span class="note">{{product.note}}</span></td>
+                    <td width='100' class='plan'>{{product.plan}}</td>
+                    <td width='100' class='actual'>
+                        {% if product.actual %}
+                                {{product.actual}}
+                        {% else %}
+                         -
+                        {% endif %}
+                    </td>
+                    <td width='100' class='pause'>{{product.pause}}</td>
+                    <td width='100' class='total'>{{product.total}}</td>
+                    <td width='100' class='start'>{{product.start_time}}</td>
+                    <td width='100' class='ETA'>{{product.ETA}}</td>
+                    <td width='100' class='status'>{{product.status}}</td>
+                    <td width='100' class='assembly'>
+                        {% autoescape off %}
+                                {{product.assembly|linebreaks}}
+                        {% endautoescape %}
+                    </td>
+                    <td width='100' class='keypoints'>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td width='100' class="total_plan">Plan</td>
+                    <td class="total_actual">Actual</td>
+                    <td class="total_pause">Pause</td>
+                    <td class="total_total">Total</td>
+                    <td></td>
+                </tr>
+          </tfoot>
+            </table>
+        </div>
+
+        <!-- Timer Dialog Assembly -->
+        <div class='assembly_dialog' style="display : none;">
+        		<div class="assembly_data"></div>
+				<div class="button_assembly_confirm">Continue</div>
+				<div class="button_assembly_cancel">Go back</div>
+			</ul>
+        </div>
+
+        <!-- Timer Dialog Window -->
+        <div class='timer' style="display : none;">
+        	<div class="timer_id" style="display: none;"></div>
+        	<div class="timer_coloumn1">
+				<h3 class="timer_product"></h3>
+				<p class="timer_description"></p>
+				<div class="timer_keypoints"></div>
+        	</div>
+
+        	<div class="timer_coloumn2">
+  	           <h2 class="timer_time"></h2>
+  	           <hr>
+	            <div class="timer-container">
+		            <div class="timer_counting">
+		                <div class="timing">0:00:00</div>
+		            </div>
+	            </div>
+	            <hr>
+	            <div class="timer_buttons">
+		            <a href="#" class="button_play"></a>
+		        	<a href="#" class="button_record"></a>
+	            </div>
+	            <hr>
+            </div>
+
+            <div class="button_cancel">Cancel</div>
+        </div>
+
+        <!-- Confirm Dialog Window -->
+        <div class='timer_confirm' style="display : none;">
+        	<div>
+				<div class="button_confirm_ready">Ready</div>
+				<div class="button_confirm_stanby">Standby</div>
+        	</div>
+			<div class="button_confirm_cancel">Cancel</div>
+        </div>
+
+        <!-- Confirm Ready Window -->
+        <div class='timer_confirm_ready' style="display : none;">
+        	<div><input type="checkbox" class="checkbox"/> Check tags</div>
+        	<div><input type="checkbox" class="checkbox"/> Check quality</div>
+        	<div><input type="checkbox" class="checkbox"/> Check small parts</div>
+			<div class="button_confirm_ready_ok">Ok</div>
+			<div class="button_confirm_ready_cancel">Cancel</div>
+        </div>
+
+        <!-- Confirm Standbay Window -->
+        <div class='timer_confirm_standby' style="display : none;">
+        	<div><input type="checkbox" class="checkbox"/> Missing Supplies</div>
+        	<div><input type="checkbox" class="checkbox"/> Missing part</div>
+        	<div><input type="checkbox" class="checkbox"/> Broken part</div>
+        	<div><input type="checkbox" class="checkbox"/> Damages Part</div>
+                <div class="button_confirm_standby_ok">Ok</div>
+                <div class="button_confirm_standby_cancel">Cancel</div>
+        </div>
+		<!-- information used by javascript code -->
+		<div style="display: none;" class="home_on_server">{{home_on_server}}</div>
+		<div style="display: none;" class="year">{{year}}</div>
+		<div style="display: none;" class="week">{{week}}</div>
+		<div style="display: none;" class="shop">{{shop}}</div>
+		<div style="display: none;" class="ac_od_id">{{product.ac_od_id}}</div>
+    </body>
+        <script type="text/javascript" src="http://169.254.184.4/js/jquery-1.8.3.js" ></script>
+        <script type="text/javascript" src="http://169.254.184.4/js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script type="text/javascript" src="http://169.254.184.4/js/moment.min.js"></script>
+        <script type="text/javascript" src="http://169.254.184.4/js/raphael-min.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}js/timer_product.js"></script>
+</html>
+

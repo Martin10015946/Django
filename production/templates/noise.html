@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui.css" media="screen"/> 
+        <link rel="stylesheet" href="{{STATIC_URL}}css/noise_progress_report.css"/>      
+        <link rel="stylesheet" href="{{STATIC_URL}}css/noise_progress_report.print.css" media='print'/>      
+        <title>Noise Report</title>
+		<meta charset="UTF-8">         
+    </head>
+    <body>
+    	<div class="header_container">	
+		<h2>Noise</h2> <h2>{{ total }}</h2>
+    <p style='clear:both'>All Order Details required before this week, <br/>
+    not ready,<br/>
+    and not in the plan.
+    </p>
+      </div>
+
+		<section class="week_container">  
+			<div class="datagrid">                        
+            <table>
+                <thead>
+                    <tr>
+                            <th class='req'>Required</th>
+                            <th>Order</th>
+                            <th>Qty</th>
+                            <th>Product</th>
+                            <th>Work</th>
+                    </tr>		
+                </thead>
+            {% for d in noise.1 %}
+                    <tr class="{{d.ac_od_id}}">
+                        <td class='req'>{{d.required_date}}</td> 
+                        <td class="ac_od_id"><a href='{{home_on_server}}/progress_report/order/{{d.ac_o_id}}'>{{d.ac_o_id}}</a></td>	
+                        <td class="qty">{{d.qty}}</td>	
+                        <td class="product" style="text-align: left;">{{d.product}} 
+                                <span class="note">{{d.note}}</span></td>	
+                        <td class="plan">{{d.plan}}</td>
+                    </tr>
+	     {% endfor %}
+	         </table>   
+		</div>	         
+		</section>
+        
+    </body>
+        <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}js/jquery.ajaxq-0.0.1.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui-1.9.2.custom.min.js"></script>        
+        <script type="text/javascript" src="{{STATIC_URL}}js/progress_report.js"></script>        
+</html>
+        

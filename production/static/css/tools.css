@@ -1,0 +1,26 @@
+body {
+    font-family: Helvetica,sans-serif;
+    margin-left: 10px;
+}
+
+input.measured_value {
+    background-color: #ECECEC;
+    border: 0 none;
+    height: 23px;
+    margin-bottom: 0;
+    padding: 0;
+    text-align: center;
+    width: 60px;
+    border-radius: 4px;
+    spadding: 1px;
+    margin: 2px;
+}
+
+td.measured_value {width: 4px;}
+
+.datagrid table tbody td:nth-child(2) {text-align: left;} /* tools names */
+.datagrid table tbody td:nth-child(3) {text-align: left;} /* tools notes */
+
+h1 span {font-size: 24px;}
+
+.admin_link{font-size: 35px;}
